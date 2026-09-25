@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Se eu soubesse disso no primeiro ano - Manual de Sobrevivência ao Ensino Médio</title>
+<style>
+    :root {
+        --azul-claro: #7ec8e3;
+        --azul-escuro: #1b3a57;
+        --branco: #ffffff;
+        --azul-medio: #4a90b8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: linear-gradient(135deg, var(--branco) 0%, #e8f4f8 100%);
+        color: var(--azul-escuro);
+        line-height: 1.6;
+    }
+
+    header {
+        background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+        color: var(--branco);
+        padding: 50px 20px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    header::before {
+        content: "";
+        position: absolute;
+        top: -50%; left: -50%;
+        width: 200%; height: 200%;
+        background: repeating-linear-gradient(45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 10px, transparent 10px, transparent 20px);
+        animation: slide 20s linear infinite;
+    }
+
+    @keyframes slide {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    header p {
+        font-size: 1.2rem;
+        color: var(--azul-claro);
+        position: relative;
+        z-index: 1;
+    }
+
+    nav {
+        background-color: var(--azul-claro);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 15px;
+        gap: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    nav a {
+        color: var(--azul-escuro);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        background-color: var(--branco);
+    }
+
+    nav a:hover {
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* BOTÃO VOLTAR */
+    .voltar {
+        max-width: 800px;
+        margin: 30px auto 0 auto;
+        padding: 0 20px;
+    }
+
+    .voltar a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--azul-medio);
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .voltar a:hover {
+        color: var(--azul-escuro);
+        transform: translateX(-5px);
+    }
+
+    /* CONTAINER DO ARTIGO */
+    .artigo-container {
+        max-width: 800px;
+        margin: 20px auto 60px auto;
+        padding: 0 20px;
+    }
+
+    .artigo-box {
+        background-color: var(--branco);
+        border-radius: 15px;
+        padding: 50px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    }
+
+    .artigo-categoria {
+        display: inline-block;
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding: 5px 15px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .artigo-titulo {
+        font-size: 2.2rem;
+        color: var(--azul-escuro);
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+
+    .artigo-meta {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 2px dashed var(--azul-claro);
+    }
+
+    .artigo-intro {
+        font-size: 1.15rem;
+        color: #333;
+        line-height: 1.9;
+        margin-bottom: 15px;
+    }
+
+    /* RELATOS */
+    .relato {
+        margin-top: 40px;
+        padding-top: 35px;
+        border-top: 2px dashed var(--azul-claro);
+    }
+
+    .relato-autor {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 18px;
+    }
+
+    .relato-avatar {
+        width: 55px;
+        height: 55px;
+        min-width: 55px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--azul-claro), var(--azul-medio));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        color: var(--branco);
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .relato-nome {
+        font-size: 1.3rem;
+        color: var(--azul-escuro);
+        font-weight: bold;
+    }
+
+    .relato-cargo {
+        font-size: 0.85rem;
+        color: #888;
+    }
+
+    .relato-texto {
+        font-size: 1.1rem;
+        color: #333;
+        line-height: 1.85;
+        padding-left: 5px;
+    }
+
+    .fim-artigo {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 25px;
+        border-top: 2px dashed var(--azul-claro);
+        color: var(--azul-medio);
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .voltar-final {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .voltar-final a {
+        display: inline-block;
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .voltar-final a:hover {
+        background-color: var(--azul-medio);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    footer {
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        text-align: center;
+        padding: 25px;
+        margin-top: 50px;
+    }
+
+    footer p { opacity: 0.9; }
+
+    @media (max-width: 600px) {
+        .artigo-box { padding: 25px; }
+        .artigo-titulo { font-size: 1.6rem; }
+        .relato-autor { flex-direction: column; text-align: center; }
+    }
+
+    .logo-canto {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--branco);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+<body>
+
+<header>
+    <img src="logo.jpg" alt="Logo" class="logo-canto">
+    <h1>📘 Manual de Sobrevivência ao Ensino Médio</h1>
+    <p>Guia essencial para encarar (e sobreviver a) mais um ano letivo!</p>
+</header>
+
+<nav>
+    <a href="dicas.html">Dicas para o Ensino Médio</a>
+    <a href="historias.html">Histórias da Turma</a>
+    <a href="entrevistas.html">Entrevistas</a>
+</nav>
+
+<div class="voltar">
+    <a href="entrevistas.html">← Voltar para Entrevistas</a>
+</div>
+
+<div class="artigo-container">
+    <div class="artigo-box">
+
+        <span class="artigo-categoria">Relatos</span>
+        <h1 class="artigo-titulo">Se eu soubesse disso no primeiro ano...</h1>
+        <div class="artigo-meta">✍️ Relatos de alunos do 3º ano — Colégio Dinâmico</div>
+
+        <p class="artigo-intro">
+            Perguntamos para quatro alunos do 3º ano o que eles gostariam de ter sabido quando 
+            começaram o Ensino Médio. As respostas vieram cheias de sinceridade, um pouco de humor 
+            e conselhos valiosos para quem ainda está no início dessa jornada.
+        </p>
+
+        <!-- RELATO 1 - BRYAN -->
+        <div class="relato">
+            <div class="relato-autor">
+                <div class="relato-avatar">B</div>
+                <div>
+                    <div class="relato-nome">Bryan</div>
+                    <div class="relato-cargo">Aluno do 3º ano</div>
+                </div>
+            </div>
+            <p class="relato-texto">
+                "Durante o ensino médio, seu círculo social acaba mudando, com muita frequência, conhecendo 
+                e se afastando, então não se sinta mal por essas mudanças. Outro conselho é a aproximação 
+                com os professores, além de diversos conselhos que eles podem te dar para te auxiliar com 
+                as matérias que você tenha dificuldade — e outro conselho é: separe o professor da matéria, 
+                apesar de você não gostar dela. E por último, tente controlar sua ansiedade. Sabemos que há 
+                dificuldades, porém a ansiedade pode atrapalhar muito o seu desempenho. Adquira costumes 
+                para se acalmar, como: beber água, descansar e, por fim, andar um pouco."
+            </p>
+        </div>
+
+        <!-- RELATO 2 - MIGUEL -->
+        <div class="relato">
+            <div class="relato-autor">
+                <div class="relato-avatar">M</div>
+                <div>
+                    <div class="relato-nome">Miguel</div>
+                    <div class="relato-cargo">Aluno do 3º ano</div>
+                </div>
+            </div>
+            <p class="relato-texto">
+                "No Ensino Médio, tudo muda — você percebe isso já no 1º ano. Pessoas saem e entram; pensar 
+                nisso hoje em dia até é motivo de risada, porém, no meu primeiro dia de aula do 1º ano, eu 
+                nem dormi. Mesmo com muitas dificuldades, eu consegui passar de ano e continuar na minha 
+                turma. Um conselho é: estude para tirar a sua maior nota e passar de ano logo."
+            </p>
+        </div>
+
+        <!-- RELATO 3 - FURTADO -->
+        <div class="relato">
+            <div class="relato-autor">
+                <div class="relato-avatar">F</div>
+                <div>
+                    <div class="relato-nome">Furtado</div>
+                    <div class="relato-cargo">Aluno do 3º ano</div>
+                </div>
+            </div>
+            <p class="relato-texto">
+                "Quando eu ia para a escola no fundamental, nem pensava que os horários iriam mudar, que a 
+                gente sairia mais tarde, até mesmo à tarde. Minha relação com os professores mudou; hoje em 
+                dia sou muito mais próximo deles e sinto que posso contar com eles até mesmo para a vida 
+                inteira, mesmo que as provas fiquem mais difíceis e mais exigentes, sempre com o mesmo tema 
+                'Enem'. Um conselho que eu daria para quem está começando o Ensino Médio é: veja os 
+                professores como amigos, eles podem te ajudar muito. E não se preocupe tanto com as provas — 
+                com muita dedicação você consegue relaxar e passar tranquilamente."
+            </p>
+        </div>
+
+        <!-- RELATO 4 - LUCAS -->
+        <div class="relato">
+            <div class="relato-autor">
+                <div class="relato-avatar">L</div>
+                <div>
+                    <div class="relato-nome">Lucas</div>
+                    <div class="relato-cargo">Aluno do 3º ano</div>
+                </div>
+            </div>
+            <p class="relato-texto">
+                "Uma parte difícil quando você entra no Ensino Médio é saber o que fazer quando ele acabar, 
+                pois é uma pressão muito alta, que acaba desmotivando as pessoas. Alguns podem sentir 
+                dificuldades, outros podem se acostumar rápido. Apesar de tudo, aproveite o Ensino Médio, 
+                pois você terá memórias boas sobre esse período."
+            </p>
+        </div>
+
+        <div class="fim-artigo">💙 Fim dos relatos 💙</div>
+
+    </div>
+
+    <div class="voltar-final">
+        <a href="entrevistas.html">← Voltar para Entrevistas</a>
+    </div>
+</div>
+
+<footer>
+    <p>💙 Feito com carinho pela turma para a turma — Ensino Médio 2026 💙</p>
+</footer>
+
+</body>
+</html>

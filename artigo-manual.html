@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Sobrevivência ao Ensino Médio - Artigo Completo</title>
+<style>
+    :root {
+        --azul-claro: #7ec8e3;
+        --azul-escuro: #1b3a57;
+        --branco: #ffffff;
+        --azul-medio: #4a90b8;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: linear-gradient(135deg, var(--branco) 0%, #e8f4f8 100%);
+        color: var(--azul-escuro);
+        line-height: 1.6;
+    }
+
+    header {
+        background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+        color: var(--branco);
+        padding: 50px 20px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,0.05),
+            rgba(255,255,255,0.05) 10px,
+            transparent 10px,
+            transparent 20px
+        );
+        animation: slide 20s linear infinite;
+    }
+
+    @keyframes slide {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    header p {
+        font-size: 1.2rem;
+        color: var(--azul-claro);
+        position: relative;
+        z-index: 1;
+    }
+
+    nav {
+        background-color: var(--azul-claro);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 15px;
+        gap: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    nav a {
+        color: var(--azul-escuro);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        background-color: var(--branco);
+    }
+
+    nav a:hover {
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* ===== BOTÃO VOLTAR ===== */
+    .voltar {
+        max-width: 800px;
+        margin: 30px auto 0 auto;
+        padding: 0 20px;
+    }
+
+    .voltar a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--azul-medio);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
+
+    .voltar a:hover {
+        color: var(--azul-escuro);
+        transform: translateX(-5px);
+    }
+
+    /* ===== ARTIGO - ESTILO DE LEITURA CONFORTÁVEL ===== */
+    .artigo-container {
+        max-width: 800px;
+        margin: 20px auto 60px auto;
+        padding: 0 20px;
+    }
+
+    .artigo-box {
+        background-color: var(--branco);
+        border-radius: 15px;
+        padding: 50px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    }
+
+    .artigo-categoria {
+        display: inline-block;
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding: 5px 15px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .artigo-titulo {
+        font-size: 2.2rem;
+        color: var(--azul-escuro);
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+
+    .artigo-meta {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 2px dashed var(--azul-claro);
+    }
+
+    .artigo-conteudo {
+        font-size: 1.15rem;
+        color: #333;
+        line-height: 1.9;
+    }
+
+    .artigo-conteudo p {
+        margin-bottom: 22px;
+    }
+
+    .artigo-conteudo h2 {
+        color: var(--azul-escuro);
+        font-size: 1.5rem;
+        margin-top: 40px;
+        margin-bottom: 18px;
+        padding-left: 15px;
+        border-left: 5px solid var(--azul-claro);
+    }
+
+    .artigo-conteudo strong {
+        color: var(--azul-escuro);
+    }
+
+    .artigo-conteudo em {
+        color: var(--azul-medio);
+    }
+
+    .fim-artigo {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 25px;
+        border-top: 2px dashed var(--azul-claro);
+        color: var(--azul-medio);
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .voltar-final {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .voltar-final a {
+        display: inline-block;
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .voltar-final a:hover {
+        background-color: var(--azul-medio);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    footer {
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        text-align: center;
+        padding: 25px;
+        margin-top: 50px;
+    }
+
+    footer p {
+        opacity: 0.9;
+    }
+
+    @media (max-width: 600px) {
+        .artigo-box {
+            padding: 25px;
+        }
+
+        .artigo-titulo {
+            font-size: 1.6rem;
+        }
+
+        .artigo-conteudo {
+            font-size: 1.05rem;
+        }
+    }
+
+    .logo-canto {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--branco);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+<body>
+
+<header>
+    <img src="logo.jpg" alt="Logo" class="logo-canto">
+    <h1>📘 Manual de Sobrevivência ao Ensino Médio</h1>
+    <p>Guia essencial para encarar (e sobreviver a) mais um ano letivo!</p>
+</header>
+
+<nav>
+    <a href="dicas.html">Dicas para o Ensino Médio</a>
+    <a href="historias.html">Histórias da Turma</a>
+    <a href="entrevistas.html">Entrevistas e Relatos</a>
+</nav>
+
+<div class="voltar">
+    <a href="dicas.html">← Voltar para Dicas</a>
+</div>
+
+<div class="artigo-container">
+    <div class="artigo-box">
+
+        <span class="artigo-categoria">Artigo Completo</span>
+        <h1 class="artigo-titulo">Manual de Sobrevivência ao Ensino Médio</h1>
+        <div class="artigo-meta">✍️ Escrito pela turma do 3º ano — Colégio Dinâmico</div>
+
+        <div class="artigo-conteudo">
+
+            <p>Se você está no ensino médio, provavelmente já percebeu que sobreviver a essa fase exige muito mais do que simplesmente prestar atenção nas aulas. São provas, trabalhos, apresentações, responsabilidades, trabalhos em grupo e, claro, aquele clássico momento em que você percebe que a atividade era para amanhã e nem sabia que ela existia. Por isso, nós do terceirão, que também estamos tentando descobrir como sobreviver a tudo isso, resolvemos criar este pequeno manual de sobrevivência escolar. Não prometemos acabar com as provas ou fazer os trabalhos por você, mas algumas dicas podem tornar essa jornada um pouco mais tranquila.</p>
+
+            <h2>1. Como sobreviver à semana de provas?</h2>
+            <p>A primeira regra é simples: <em>não deixe tudo para a véspera!</em> Estudar com antecedência faz toda a diferença, principalmente quando existem várias matérias acumuladas. Ter uma rotina de estudos ajuda a distribuir o conteúdo ao longo dos dias e evita aquela sensação de que você precisa aprender o semestre inteiro em uma noite.</p>
+            <p>Também é importante não se desesperar. Organize os conteúdos, faça resumos e estabeleça pequenas metas para cada sessão de estudo. Durante esse período, faça pausas de aproximadamente 10 minutos para descansar e voltar com mais atenção. E não se esqueça de dormir bem! Passar a madrugada estudando pode parecer uma boa ideia, mas provavelmente seu cérebro não vai agradecer no dia seguinte.</p>
+            <p>Antes da prova, o ideal é apenas revisar o conteúdo. Afinal, revisão é uma coisa; tentar aprender toda a matéria cinco minutos antes da prova é muito complicado.</p>
+
+            <h2>2. Como sobreviver a uma nota ruim?</h2>
+            <p>Todo mundo pode tirar uma nota ruim em algum momento. O importante é não transformar uma nota em motivo para desistir. Em vez de simplesmente guardar a prova no fundo da mochila e fingir que ela nunca existiu, tente entender o que aconteceu.</p>
+            <p>Reestude a matéria, faça exercícios e corrija seus erros. Se possível, refaça as questões da prova para descobrir exatamente onde teve dificuldade. E, se ainda não entender, peça ajuda ao professor ou a algum amigo que tenha mais facilidade com aquele conteúdo. Uma nota ruim pode servir como um aviso de que é preciso mudar a forma de estudar ou reforçar determinado assunto.</p>
+
+            <h2>3. Como sobreviver a estudar sem saber por onde começar?</h2>
+            <p>Sabe quando você abre o caderno, olha para todas as matérias e pensa: "Por onde eu começo?"? E, quando percebe, já está arrumando a mochila, mexendo no celular ou até limpando o quarto? Pois é, acontece.</p>
+            <p>Para evitar isso, faça uma lista com tudo o que precisa estudar e organize por prioridade. Comece pelas provas mais próximas ou pelas matérias em que você tem mais dificuldade. Depois, transforme cada conteúdo em pequenas tarefas. Em vez de pensar "preciso estudar matemática", coloque uma meta mais específica, como "revisar determinado conteúdo e fazer alguns exercícios".</p>
+            <p>Outra dica é começar pela tarefa mais simples. Quando você consegue concluir alguma coisa, fica mais fácil ganhar ritmo e continuar. E não espere pela motivação perfeita para começar, porque ela provavelmente também está esperando você começar primeiro.</p>
+
+            <h2>4. Como sobreviver à escola e às responsabilidades?</h2>
+            <p>Com tantas coisas para fazer, organização é essencial. Determine horários para estudar, realizar trabalhos, descansar e cumprir outras responsabilidades. Depois, tente realmente cumprir esses horários, porque criar uma rotina perfeita no papel e ignorá-la na prática não vai ajudar muito.</p>
+            <p>Criar metas e checklists também pode facilitar bastante. Ver as tarefas sendo concluídas dá aquela pequena sensação de vitória que, no ensino médio, já ajuda bastante.</p>
+            <p>Além disso, tenha disciplina e não seja influenciável. Se você sabe que precisa estudar, não precisa abandonar tudo porque alguém decidiu que aquele é o melhor dia para não fazer absolutamente nada. Manter uma rotina ajuda a evitar o acúmulo de tarefas e torna o dia a dia muito mais organizado e produtivo.</p>
+
+            <h2>5. Como sobreviver a uma apresentação de trabalho sem ter vergonha?</h2>
+            <p>Apresentar um trabalho pode dar aquele frio na barriga, principalmente quando você sabe que todos os olhos estarão voltados para você. Mas existem algumas maneiras de diminuir o nervosismo.</p>
+            <p>A primeira é conhecer bem o conteúdo. Quanto mais você entende o assunto, menos precisa decorar palavra por palavra. Também vale a pena treinar antes da apresentação, falando em voz alta ou ensaiando com alguém.</p>
+            <p>Na hora, tente falar devagar, respirar e olhar para o público. Se esquecer uma palavra ou se enrolar em uma frase, continue. Provavelmente ninguém percebeu tanto quanto você imagina. E lembre-se: você não precisa fazer uma apresentação perfeita. O objetivo é conseguir explicar o conteúdo de forma clara.</p>
+
+            <h2>6. Como sobreviver a um trabalho em grupo?</h2>
+            <p>Trabalho em grupo pode ser ótimo… até você perceber que o grupo tem cinco pessoas e apenas duas estão trabalhando. Para evitar esse problema clássico, é importante dividir as tarefas desde o início e deixar claro o que cada pessoa precisa fazer.</p>
+            <p>Ser cooperativo também é fundamental. Respeite a opinião dos outros, mesmo quando você não concordar, e expresse suas próprias ideias quando achar que algo pode melhorar. Não deixe tudo para cima da hora, porque tentar montar um trabalho completo na noite anterior provavelmente vai transformar o grupo em um verdadeiro caos.</p>
+            <p>E, principalmente, faça a sua função com excelência. Cada integrante precisa assumir sua responsabilidade para que o resultado final seja realmente um trabalho de todos.</p>
+
+            <h2>7. Como sobreviver quando não sabe pedir ajuda?</h2>
+            <p>Às vezes, admitir que não entendeu alguma coisa parece mais difícil do que a própria matéria. Mas pedir ajuda não significa ser menos inteligente. Muito pelo contrário: significa reconhecer uma dificuldade e procurar uma solução.</p>
+            <p>Quando precisar de ajuda, tente explicar exatamente qual parte você não entendeu. Em vez de simplesmente dizer "não sei nada", mostre até onde conseguiu chegar e diga onde começou a ter dificuldade. Isso facilita muito para quem está tentando ajudar.</p>
+            <p>Você pode procurar um professor, um amigo ou até estudar com alguém. Muitas vezes, uma explicação diferente é suficiente para fazer aquele conteúdo finalmente entrar na cabeça.</p>
+
+            <h2>8. Como sobreviver quando deixou tudo para a última hora?</h2>
+            <p>E chegamos ao momento que muitos estudantes conhecem bem: você olha para o calendário e percebe que tem uma prova amanhã, um trabalho para entregar e uma atividade que deveria ter começado há uma semana. O primeiro passo é: <strong>não se desespere</strong>. O pânico não vai fazer as tarefas desaparecerem, muito menos fazê-las aparecer prontas.</p>
+            <p>Analise tudo o que precisa ser feito e organize as tarefas por prioridade. Depois, comece. Faça rápido, mas procure manter a qualidade. Tenha foco, seja contínuo e evite distrações. Escolha um lugar tranquilo, deixe o celular um pouco de lado e concentre-se no que precisa ser terminado.</p>
+
+            <p>Mas, no final, todas essas dicas estão conectadas. Estudar com antecedência ajuda a evitar o desespero; ter uma rotina facilita o cumprimento das responsabilidades; pedir ajuda impede que uma pequena dificuldade vire um problema enorme; saber trabalhar em grupo evita sobrecarga; e se organizar faz com que você não precise correr contra o relógio toda semana.</p>
+
+            <p>No ensino médio, nem sempre dá para controlar tudo o que acontece. Mas dá para controlar a forma como você se organiza para enfrentar cada situação. Então, respire, faça uma lista, pegue seu material e comece. Afinal, se chegamos até aqui, talvez a gente consiga sobreviver a mais uma prova, mais um trabalho e, principalmente, àquela atividade que o professor acabou de passar e que vale metade da nota.</p>
+
+        </div>
+
+        <div class="fim-artigo">💙 Fim do artigo 💙</div>
+
+    </div>
+
+    <div class="voltar-final">
+        <a href="dicas.html">← Voltar para Dicas</a>
+    </div>
+</div>
+
+<footer>
+    <p>💙 Feito com carinho pela turma para a turma — Ensino Médio 2026 💙</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna e a prova - Histórias da Turma</title>
+<style>
+    :root {
+        --azul-claro: #7ec8e3;
+        --azul-escuro: #1b3a57;
+        --branco: #ffffff;
+        --azul-medio: #4a90b8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: linear-gradient(135deg, var(--branco) 0%, #e8f4f8 100%);
+        color: var(--azul-escuro);
+        line-height: 1.6;
+    }
+
+    header {
+        background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+        color: var(--branco);
+        padding: 50px 20px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    header::before {
+        content: "";
+        position: absolute;
+        top: -50%; left: -50%;
+        width: 200%; height: 200%;
+        background: repeating-linear-gradient(45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 10px, transparent 10px, transparent 20px);
+        animation: slide 20s linear infinite;
+    }
+
+    @keyframes slide {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    header p {
+        font-size: 1.2rem;
+        color: var(--azul-claro);
+        position: relative;
+        z-index: 1;
+    }
+
+    nav {
+        background-color: var(--azul-claro);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 15px;
+        gap: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    nav a {
+        color: var(--azul-escuro);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        background-color: var(--branco);
+    }
+
+    nav a:hover {
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .voltar {
+        max-width: 1100px;
+        margin: 30px auto 0 auto;
+        padding: 0 20px;
+    }
+
+    .voltar a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--azul-medio);
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .voltar a:hover {
+        color: var(--azul-escuro);
+        transform: translateX(-5px);
+    }
+
+    /* ===== PÁGINA DA TIRINHA ===== */
+    .artigo-container {
+        max-width: 1100px;
+        margin: 20px auto 60px auto;
+        padding: 0 20px;
+    }
+
+    .artigo-box {
+        background-color: var(--branco);
+        border-radius: 15px;
+        padding: 45px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    }
+
+    .artigo-categoria {
+        display: inline-block;
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding: 5px 15px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .artigo-titulo {
+        font-size: 2.2rem;
+        color: var(--azul-escuro);
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+
+    .artigo-meta {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 2px dashed var(--azul-claro);
+    }
+
+    .artigo-intro {
+        font-size: 1.15rem;
+        color: #333;
+        line-height: 1.9;
+        margin-bottom: 30px;
+    }
+
+    .tirinha {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 3px solid var(--azul-claro);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        cursor: zoom-in;
+        transition: transform 0.3s ease;
+    }
+
+    .tirinha:hover { transform: scale(1.01); }
+
+    .legenda {
+        text-align: center;
+        color: #777;
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-top: 12px;
+    }
+
+    .moral {
+        background-color: #eaf6fb;
+        padding: 20px 25px;
+        border-radius: 10px;
+        border-left: 5px solid var(--azul-medio);
+        margin-top: 35px;
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+    .moral strong { color: var(--azul-escuro); }
+
+    .voltar-final {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .voltar-final a {
+        display: inline-block;
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .voltar-final a:hover {
+        background-color: var(--azul-medio);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* ===== LIGHTBOX (ampliar imagem ao clicar) ===== */
+    .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.9);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        cursor: zoom-out;
+        padding: 20px;
+    }
+
+    .lightbox.aberto { display: flex; }
+
+    .lightbox img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 8px;
+    }
+
+    footer {
+        background-color: var(--azul-escuro);
+        color: var(--branco);
+        text-align: center;
+        padding: 25px;
+        margin-top: 50px;
+    }
+
+    footer p { opacity: 0.9; }
+
+    @media (max-width: 600px) {
+        .artigo-box { padding: 20px; }
+        .artigo-titulo { font-size: 1.6rem; }
+    }
+
+    .logo-canto {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--branco);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+<body>
+
+<header>
+    <img src="logo.jpg" alt="Logo" class="logo-canto">
+    <h1>📘 Manual de Sobrevivência ao Ensino Médio</h1>
+    <p>Guia essencial para encarar (e sobreviver a) mais um ano letivo!</p>
+</header>
+
+<nav>
+    <a href="dicas.html">Dicas para o Ensino Médio</a>
+    <a href="historias.html">Histórias da Turma</a>
+    <a href="entrevistas.html">Entrevistas e Relatos</a>
+</nav>
+
+<div class="voltar">
+    <a href="historias.html">← Voltar para Histórias</a>
+</div>
+
+<div class="artigo-container">
+    <div class="artigo-box">
+
+        <span class="artigo-categoria">Tirinha</span>
+        <h1 class="artigo-titulo">Anna e a prova que "estava muito fácil"</h1>
+        <div class="artigo-meta">✍️ Histórias da Turma — 3º ano, Colégio Dinâmico</div>
+
+        <p class="artigo-intro">
+            Quem nunca olhou para o conteúdo da prova e pensou "ah, é pouca coisa, não precisa estudar"? 
+            A Anna pensou. E, em 7 quadrinhos, descobriu do jeito mais difícil que 25 fórmulas e 30 conceitos 
+            não cabem na cabeça em 10 minutos. Clique na imagem para ampliar!
+        </p>
+
+        <img src="historia-anna.jpg" alt="Tirinha em 7 quadrinhos: Anna antes, durante e depois da prova" class="tirinha" id="imgTirinha">
+        <p class="legenda">Tirinha: "A saga da Anna" — do "está muito fácil" até o "finalmente acabou esse inferno!"</p>
+
+        <div class="moral">
+            <strong>Moral da história:</strong> "pouca matéria" é relativo. Sempre dê uma olhada no conteúdo 
+            antes de decidir que não precisa estudar — e agradeça aos professores que colocam as fórmulas no quadro. 😅
+        </div>
+
+    </div>
+
+    <div class="voltar-final">
+        <a href="historias.html">← Voltar para Histórias</a>
+    </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <img src="historia-anna.jpg" alt="Tirinha ampliada">
+</div>
+
+<footer>
+    <p>💙 Feito com carinho pela turma para a turma — Ensino Médio 2026 💙</p>
+</footer>
+
+<script>
+    const img = document.getElementById('imgTirinha');
+    const lightbox = document.getElementById('lightbox');
+    img.addEventListener('click', () => lightbox.classList.add('aberto'));
+    lightbox.addEventListener('click', () => lightbox.classList.remove('aberto'));
+</script>
+
+</body>
+</html>
